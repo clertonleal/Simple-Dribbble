@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Simple Dribbble</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="loading">Carregando</string>
+    <string name="loading_shots">Carregando imagems…</string>
+    <string name="dribble">Dribble</string>
+    <string name="dribble_image">dribble_image</string>
+    <string name="tittle_test">End of a era</string>
+    <string name="image_views">image_views</string>
+    <string name="text_views_count_test">4600</string>
+    <string name="refresh">Atualizar</string>
+    <string name="lorem">Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os embaralhou para fazer um livro de modelos de tipos. Lorem Ipsum sobreviveu não só a cinco séculos, como também ao salto para a editoração eletrônica, permanecendo essencialmente inalterado. Se popularizou na década de 60, quando a Letraset lançou decalques contendo passagens de Lorem Ipsum, e mais recentemente quando passou a ser integrado a softwares de editoração eletrônica como Aldus PageMaker.</string>
+    <string name="no_internet">Você está sem internet cara. Faz isso não....</string>
+</resources>
