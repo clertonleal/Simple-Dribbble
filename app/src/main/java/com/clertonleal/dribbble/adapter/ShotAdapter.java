@@ -44,7 +44,7 @@ public class ShotAdapter extends android.support.v7.widget.RecyclerView.Adapter<
         Shot shot = shots.get(position);
         holder.onShotClickListener = onShotClickListener;
         holder.shot = shot;
-        DribbblePicasso.with(context, shot.getImage400Url()).into(holder.dribbbleImage);
+        DribbblePicasso.with(context, shot.getImageUrl()).into(holder.dribbbleImage);
         holder.dribbbleTittle.setText(shot.getTitle());
         holder.viewCount.setText(shot.getViewsCount().toString());
     }
