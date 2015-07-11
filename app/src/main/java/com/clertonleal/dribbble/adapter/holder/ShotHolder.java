@@ -15,7 +15,6 @@ public class ShotHolder extends RecyclerView.ViewHolder {
     public ImageView dribbbleImage;
     public TextView dribbbleTittle;
     public TextView viewCount;
-    public LinearLayout layoutProgress;
     public OnShotClickListener onShotClickListener;
     public Shot shot;
 
@@ -29,7 +28,6 @@ public class ShotHolder extends RecyclerView.ViewHolder {
         dribbbleImage = (ImageView) itemView.findViewById(R.id.image_dribble);
         dribbbleTittle = (TextView) itemView.findViewById(R.id.text_tittle_dribble);
         viewCount = (TextView) itemView.findViewById(R.id.text_views_count);
-        layoutProgress = (LinearLayout) itemView.findViewById(R.id.layout_loading);
     }
 
 }

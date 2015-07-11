@@ -1,12 +1,10 @@
 package com.clertonleal.dribbble.activity;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
-import com.clertonleal.dribbble.R;
 import com.clertonleal.dribbble.application.Application;
 import com.clertonleal.dribbble.dagger.DribbbleComponent;
 
@@ -16,7 +14,6 @@ import rx.subscriptions.CompositeSubscription;
 public abstract class BaseActivity extends AppCompatActivity {
 
     protected CompositeSubscription compositeSubscription = new CompositeSubscription();
-    private ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,36 +38,6 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected void unsubscribeSubscriptions(){
         compositeSubscription.unsubscribe();
         compositeSubscription = new CompositeSubscription();
-    }
-
-    protected void showProgressDialog(int message) {
-        cancelProgressDialog();
-        if (!isFinishing()) {
-            setUpProgressDialog(getResources().getString(message));
-            progressDialog.show();
-        }
-    }
-
-    protected void showProgressDialog() {
-        cancelProgressDialog();
-        if (!isFinishing()) {
-            setUpProgressDialog(null);
-            progressDialog.show();
-        }
-    }
-
-    protected void cancelProgressDialog() {
-        if (progressDialog != null && progressDialog.isShowing()) {
-            progressDialog.cancel();
-        }
-    }
-
-    private void setUpProgressDialog(String message) {
-        progressDialog = new ProgressDialog(this);
-        progressDialog.setIndeterminate(true);
-        progressDialog.setCancelable(false);
-        progressDialog.setTitle(R.string.dribble);
-        progressDialog.setMessage(message);
     }
 
     protected DribbbleComponent dribbleComponent() {

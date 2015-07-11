@@ -71,18 +71,5 @@
         </LinearLayout>
 
     </RelativeLayout>
-
-    <LinearLayout
-        android:id="@+id/layout_loading"
-        android:layout_width="match_parent"
-        android:background="@color/loading_background"
-        android:visibility="gone"
-        android:layout_height="match_parent">
-        <ProgressBar
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:indeterminate="true"/>
-    </LinearLayout>
-
 </android.support.v7.widget.CardView>
 

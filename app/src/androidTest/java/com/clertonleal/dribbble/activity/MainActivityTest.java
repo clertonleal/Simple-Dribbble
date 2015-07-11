@@ -28,13 +28,13 @@ public class MainActivityTest {
     }
 
     @Test
-    public void open_shot_detail() {
+    public void open_zoom_image() {
         onView(withId(R.id.list)).perform(RecyclerViewActions.actionOnItemAtPosition(0, click()));
+        onView(withId(R.id.image_dribble)).perform(click());
     }
 
     @Test
-    public void open_zoom_image() {
-        open_shot_detail();
-        onView(withId(R.id.image_dribble)).perform(click());
+    public void open_shot_detail() {
+        onView(withId(R.id.list)).perform(RecyclerViewActions.actionOnItemAtPosition(0, click()));
     }
 }

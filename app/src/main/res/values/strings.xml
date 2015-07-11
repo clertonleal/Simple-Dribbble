@@ -12,5 +12,6 @@
     <string name="text_views_count_test">4600</string>
     <string name="refresh">Atualizar</string>
     <string name="lorem">Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os embaralhou para fazer um livro de modelos de tipos. Lorem Ipsum sobreviveu não só a cinco séculos, como também ao salto para a editoração eletrônica, permanecendo essencialmente inalterado. Se popularizou na década de 60, quando a Letraset lançou decalques contendo passagens de Lorem Ipsum, e mais recentemente quando passou a ser integrado a softwares de editoração eletrônica como Aldus PageMaker.</string>
-    <string name="no_internet">Você está sem internet cara. Faz isso não....</string>
+    <string name="no_comments">Sem comentários. =(</string>
+    <string name="no_internet">É preciso internet para usar o Simple Dribbble.</string>
 </resources>
