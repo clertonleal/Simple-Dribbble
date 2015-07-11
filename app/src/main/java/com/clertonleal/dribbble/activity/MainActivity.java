@@ -48,7 +48,7 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        configureToolbar();
+        setSupportActionBar(toolbar);
         setListeners();
         checkInternet();
     }
@@ -59,12 +59,6 @@ public class MainActivity extends BaseActivity {
         } else {
             showEmptyView(true);
         }
-    }
-
-    private void configureToolbar() {
-        toolbar.inflateMenu(R.menu.home_menu);
-        toolbar.setTitle(R.string.app_name);
-        setSupportActionBar(toolbar);
     }
 
     private void initViewPager() {
