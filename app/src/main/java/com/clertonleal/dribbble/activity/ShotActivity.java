@@ -1,19 +1,27 @@
 package com.clertonleal.dribbble.activity;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.BitmapDrawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
+import android.support.v7.graphics.Palette;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
 import android.text.method.LinkMovementMethod;
+import android.transition.Explode;
 import android.view.MenuItem;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.clertonleal.dribbble.R;
 import com.clertonleal.dribbble.entity.Shot;
 import com.clertonleal.dribbble.util.BundleKeys;
+import com.clertonleal.dribbble.util.ColorUtil;
 import com.clertonleal.dribbble.util.DribbblePicasso;
+import com.squareup.picasso.Callback;
 
 import butterknife.InjectView;
 
@@ -63,7 +71,7 @@ public class ShotActivity extends BaseActivity {
     }
 
     private void showShot() {
-        DribbblePicasso.with(this, shot.getImageUrl()).into(dribbbleImage);
+        DribbblePicasso.with(this, shot.getImageUrl()).into(dribbbleImage, callback);
         dribbbleTittle.setText(shot.getTitle());
         textCount.setText(String.valueOf(shot.getViewsCount()));
         DribbblePicasso.with(this, shot.getPlayer().getAvatarUrl()).into(imageAuthorAvatar);
@@ -98,4 +106,27 @@ public class ShotActivity extends BaseActivity {
     protected void injectMembers() {
         dribbleComponent().inject(this);
     }
+
+    private final Callback callback = new Callback() {
+        @Override
+        public void onSuccess() {
+            Palette.from(((BitmapDrawable) dribbbleImage.getDrawable()).getBitmap()).generate(palette -> {
+                Palette.Swatch vibrantSwatch = palette.getVibrantSwatch();
+
+                if (vibrantSwatch != null) {
+                    toolbar.setBackgroundColor(vibrantSwatch.getRgb());
+                    toolbar.setTitleTextColor(vibrantSwatch.getBodyTextColor());
+
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                        getWindow().setStatusBarColor(ColorUtil.getDarkerColor(vibrantSwatch.getRgb()));
+                    }
+                }
+            });
+        }
+
+        @Override
+        public void onError() {
+
+        }
+    };
 }

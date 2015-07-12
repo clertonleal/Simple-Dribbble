@@ -51,6 +51,7 @@ public class MainActivity extends BaseActivity {
         setSupportActionBar(toolbar);
         setListeners();
         checkInternet();
+        overridePendingTransition(R.anim.slide_out_down, R.anim.slide_in_up);
     }
 
     private void checkInternet() {

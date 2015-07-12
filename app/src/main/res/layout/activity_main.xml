@@ -28,7 +28,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:tabIndicatorHeight="5dp"
-                app:tabIndicatorColor="@android:color/white"/>
+                app:tabIndicatorColor="@color/loading_background"/>
         </android.support.design.widget.AppBarLayout>
 
         <android.support.v4.view.ViewPager
