@@ -1,6 +1,7 @@
 package com.clertonleal.dribbble.fragment;
 
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
@@ -33,6 +34,9 @@ public class ListShotsFragment extends BaseFragment {
     @Inject
     ShotAdapter shotAdapter;
 
+    @Inject
+    Resources resources;
+
     LinearLayoutManager linearLayoutManager;
 
     int actualPage = 1;
@@ -57,6 +61,16 @@ public class ListShotsFragment extends BaseFragment {
         configureRecycleView();
         setListeners();
         loadInitialPage();
+        setContentDescription(view);
+    }
+
+    private void setContentDescription(View view) {
+        View list = view.findViewById(android.R.id.list);
+        if (pageType == PageType.POPULAR) {
+            list.setContentDescription(resources.getString(R.string.populars));
+        } else if (pageType == PageType.DEBUT) {
+            list.setContentDescription(resources.getString(R.string.debuts));
+        }
     }
 
     private void setListeners() {

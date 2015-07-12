@@ -12,11 +12,12 @@ import rx.schedulers.Schedulers;
 
 public class DribbbleService {
 
-    @Inject
-    public DribbbleService() {}
+    DribbbleNetwork dribbbleNetwork;
 
     @Inject
-    DribbbleNetwork dribbbleNetwork;
+    public DribbbleService(DribbbleNetwork dribbbleNetwork) {
+        this.dribbbleNetwork = dribbbleNetwork;
+    }
 
     public Observable<Page> retrievePopularPage(int page) {
         return dribbbleNetwork.retrievePopularPage(page).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());

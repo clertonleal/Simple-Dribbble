@@ -13,28 +13,28 @@ import org.junit.runner.RunWith;
 
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
+import static android.support.test.espresso.assertion.ViewAssertions.matches;
+import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
+import static android.support.test.espresso.matcher.ViewMatchers.withContentDescription;
 
 @RunWith(AndroidJUnit4.class)
 @LargeTest
 public class MainActivityTest {
 
     @Rule
-    public ActivityTestRule<MainActivity> mActivityRule = new ActivityTestRule<>(MainActivity.class);
+    public ActivityTestRule<MainActivity> activityRule = new ActivityTestRule<>(MainActivity.class);
 
     @Test
-    public void refresh_shots() {
-        onView(withId(R.id.action_refresh)).perform(click());
+    public void openShotDetail() {
+        onView(withContentDescription("Populares")).check(matches(isDisplayed()));
+        onView(withContentDescription("Populares")).perform(RecyclerViewActions.scrollToPosition(9));
+        onView(withContentDescription("Populares")).perform(RecyclerViewActions.actionOnItemAtPosition(9, click()));
     }
 
     @Test
-    public void open_zoom_image() {
-        onView(withId(R.id.list)).perform(RecyclerViewActions.actionOnItemAtPosition(0, click()));
+    public void openZoomImage() {
+        openShotDetail();
         onView(withId(R.id.image_dribble)).perform(click());
-    }
-
-    @Test
-    public void open_shot_detail() {
-        onView(withId(R.id.list)).perform(RecyclerViewActions.actionOnItemAtPosition(0, click()));
     }
 }
